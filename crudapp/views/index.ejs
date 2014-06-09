@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Blog</title>
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+  </head>
+  <body>
+  	<h1>Welcome TO another blog</h1>
+  	<form action="/blog" method="post">
+  		<input type="string" name="title" placeholder="Title">
+  		<input type="string" name="post" placeholder="Body">
+  		<input type="submit" name="submit">
+  	</form>
+  	<% for(var i=0; i<posts.length; i++) {%>
+  		<li><%= posts[i].title%></li>
+  		<li><%= posts[i].content %></li>
+  		<li><a href=<%="/edit/" + posts[i].id%>>Edit Post</a>
+  			<form action=<%="/delete/" + posts[i].id%> method="post">
+  				<button type="submit">Delete</button>
+  			</form>
+		<% } %>
+  </body>
+</html>
